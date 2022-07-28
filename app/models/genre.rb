@@ -7,4 +7,7 @@ class Genre < ActiveHash::Base
     { id: 5, name: '運用経費' },
     { id: 6, name: '次年度繰越金' }
   ]
+
+  include ActiveHash::Associations
+  has_many :edais  
   end

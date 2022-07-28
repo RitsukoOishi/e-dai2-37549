@@ -1,6 +1,6 @@
 class EdaisController < ApplicationController
   def index
-    @edais = Edai.all
+    @edais = Edai.order("created_at DESC")
   end
   
   def new
