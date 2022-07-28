@@ -1,0 +1,33 @@
+<h3>収支を登録する</h3>
+  <%= form_with model: @edai, local: true do |f|%>
+    <div class="field">
+      <%= f.label :balance_id, "収入/支出" %><br />
+      <%= f.text_field :balance_id, id:"balance_id" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :gregorian, "日付" %><br />
+      <%= f.text_area :gregorian, class: :form__text, id:"gregorian" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :genre_id, "項目" %><br />
+      <%= f.text_area :genre_id, class: :form__text, id:"genre_id" %>
+    </div>
+    <div class="field">
+      <%= f.label :description, "摘要" %><br />
+      <%= f.text_area :description, class: :form__text, id:"description" %>
+    </div>
+    <div class="field">
+      <%= f.label :price, "金額" %><br />
+      <%= f.text_area :price, class: :form__text, id:"price" %>
+    </div>
+    <div class="field">
+      <%= f.label :user_id, "登録者" %><br />
+      <%= f.text_area :user_id, class: :form__text, id:"user_id" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "保存する", class: :form__btn  %>
+    </div>
+  <% end %>

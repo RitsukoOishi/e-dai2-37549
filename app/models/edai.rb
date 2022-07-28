@@ -1,0 +1,2 @@
+class Edai < ApplicationRecord
+end

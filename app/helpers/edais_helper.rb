@@ -1,0 +1,2 @@
+module EdaisHelper
+end

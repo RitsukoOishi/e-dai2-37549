@@ -1,0 +1,13 @@
+<div class="contents row">
+  <h1> 永代へようこそ </h1>
+  <%= link_to "新規収支の登録", new_edai_path, method: :get,class: :nav__btn %>
+  <% @edais.each do |edai| %>
+      <p><%= edai.balance_id %></p>
+      <p><%= edai.gregorian %></p>
+      <p><%= edai.genre_id %></p>
+      <p><%= edai.description %></p>
+      <p><%= edai.price %></p>
+      <p><%= edai.user_id %></p>
+    </div>
+  <% end %>
+</div>
