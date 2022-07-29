@@ -1,0 +1,9 @@
+.title{
+  display: flex;
+  flex-flow: column;
+}
+
+.list{
+  display: flex;
+  margin: 10px;
+}

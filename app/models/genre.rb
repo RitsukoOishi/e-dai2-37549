@@ -4,7 +4,7 @@ class Genre < ActiveHash::Base
     { id: 2, name: '講師謝礼' },
     { id: 3, name: '会場費' },
     { id: 4, name: '通信費' },
-    { id: 5, name: '運用経費' },
+    { id: 5, name: '運営経費' },
     { id: 6, name: '次年度繰越金' }
   ]
 

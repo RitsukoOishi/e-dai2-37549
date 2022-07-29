@@ -19,6 +19,6 @@ class EdaisController < ApplicationController
 
   private
   def edai_params
-    params.require(:edai).permit(:balance_id, :gregorian, :genre_id, :description, :price, :user_id)
+    params.require(:edai).permit(:balance_id, :entry_day, :genre_id, :description, :price, :user_id)
   end
 end

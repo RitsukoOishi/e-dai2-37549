@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2022_07_28_115443) do
 
   create_table "edais", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "balance_id", null: false
-    t.date "gregorian", null: false
+    t.date "entry_day", null: false
     t.integer "genre_id", null: false
     t.string "description", null: false
     t.integer "price", null: false

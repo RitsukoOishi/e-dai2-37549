@@ -1,13 +1,25 @@
 <div class="contents row">
   <h1> 永代へようこそ </h1>
   <%= link_to "新規収支の登録", new_edai_path, method: :get,class: :nav__btn %>
-  <% @edais.each do |edai| %>
-      <p><%= edai.balance.name %></p>
-      <p><%= edai.gregorian %></p>
-      <p><%= edai.genre.name %></p>
-      <p><%= edai.description %></p>
-      <p><%= edai.price %></p>
-      <p><%= edai.user_id %></p>
+  <div class ="title">
+    <ul class = "list">
+          <li class="list">収入/支出</li>
+          <li class="list">日付</li>
+          <li class="list">項目</li>
+          <li class="list">摘要</li>
+          <li class="list">摘要</li>
+          <li class="list">登録ユーザー</li>
+    </ul>
+    <div class = "contents">
+      <% @edais.each do |edai| %>
+        <ul class = "list">
+          <li class = "list"><%= edai.balance.name %></li>
+          <li class = "list"><%= edai.entry_day %></li>
+          <li class = "list"><%= edai.genre.name %></li>
+          <li class = "list"><%= edai.description %></li>
+          <li class = "list"><%= edai.price %></li>
+          <li class = "list"><%= edai.user_id %></li>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
