@@ -1,25 +1,78 @@
-<div class="contents row">
-  <h1> 永代へようこそ </h1>
+  <h1> トップページ </h1>
   <%= link_to "新規収支の登録", new_edai_path, method: :get,class: :nav__btn %>
-  <div class ="title">
-    <ul class = "list">
-          <li class="list">収入/支出</li>
-          <li class="list">日付</li>
-          <li class="list">項目</li>
-          <li class="list">摘要</li>
-          <li class="list">摘要</li>
-          <li class="list">登録ユーザー</li>
-    </ul>
-    <div class = "contents">
+    <table border="1", class = "list1" >
+      <tr>
+        <th>収入/支出</th>
+        <th>日付</th>
+        <th>項目</th>
+        <th>摘要</th>
+        <th>金額</th>
+        <th>登録ユーザー</th>
+        <th>編集</th>
+        <th>削除</th>
+      </tr>
+
       <% @edais.each do |edai| %>
-        <ul class = "list">
-          <li class = "list"><%= edai.balance.name %></li>
-          <li class = "list"><%= edai.entry_day %></li>
-          <li class = "list"><%= edai.genre.name %></li>
-          <li class = "list"><%= edai.description %></li>
-          <li class = "list"><%= edai.price %></li>
-          <li class = "list"><%= edai.user_id %></li>
+        <tr>
+          <td><%= edai.balance.name %></td>
+          <td><%= edai.entry_day %></td>
+          <td><%= edai.genre.name %></td>
+          <td><%= edai.description %></td>
+          <td><%= edai.price %></td>
+          <td><%= edai.user_id %></td>
+          <td><%= "編集"%></td>
+          <td><%= "削除"%>
+
+        </tr>
       <% end %>
-    </div>
-  </div>
-</div>
+    </table>
+
+  <div class = "genre">収支の合計</div>
+    <table border="1", class = "item_balance_sum" >
+      <% @edai_sum_balance.each do |key,value| %>
+        <tr>
+          <% case key %>
+            <% when 2 then %>
+              <% key_str = "収入" %>
+            <% when 3 then %>
+              <% key_str = "支出" %>
+          <% end %>
+
+          <td><%= key_str %></td>
+          <td><%= value.round %></td>
+        </tr>
+      <% end %>
+    </table>
+
+  <div class = "genre">項目の合計</div>
+    <table border="1", class = "item_sum" >
+      <% @edai_sum.each do |key,value| %>
+        <tr>
+          <% case key %>
+            <% when 2 then %>
+              <% key_str = "講師謝礼" %>
+            <% when 3 then %>
+              <% key_str = "会場費" %>
+            <% when 4 then %>
+              <% key_str = "通信費" %>
+            <% when 5 then %>
+              <% key_str = "運営費" %>
+            <% when 6 then %>
+              <% key_str = "次年度繰越金" %>
+          <% end %>
+
+          <td><%= key_str %></td>
+          <td><%= value.round %></td>
+        </tr>
+      <% end %>
+    </table>
+
+  <div class = "genre">摘要の合計</div>
+    <table border="1", class = "item_sum" >
+      <% @edai_sum_description.each do |key,value| %>
+        <tr>
+          <td><%= key %></td>
+          <td><%= value.round %></td>
+        </tr>
+      <% end %>
+    </table>
