@@ -1,4 +1,4 @@
-  <h1> トップページ </h1>
+  <h1> 会計ソフト　永代のトップページ </h1>
   <%= link_to "新規収支の登録", new_edai_path, method: :get,class: :nav__btn %>
     <table border="1", class = "list1" >
       <tr>
@@ -6,73 +6,104 @@
         <th>日付</th>
         <th>項目</th>
         <th>摘要</th>
+        <th>備考</th>
         <th>金額</th>
         <th>登録ユーザー</th>
         <th>編集</th>
         <th>削除</th>
       </tr>
-
-      <% @edais.each do |edai| %>
-        <tr>
-          <td><%= edai.balance.name %></td>
-          <td><%= edai.entry_day %></td>
-          <td><%= edai.genre.name %></td>
-          <td><%= edai.description %></td>
-          <td><%= edai.price %></td>
-          <td><%= edai.user_id %></td>
-          <td><%= "編集"%></td>
-          <td><%= "削除"%>
-
-        </tr>
+  <% @edais.each do |edai| %>
+          <tr>
+            <td><%= edai.balance.name %></td>
+            <td><%= edai.entry_day %></td>
+            <td><%= edai.genre.name %></td>
+            <td><%= edai.description.name %></td>
+            <td><%= edai.note %></td>
+            <td><%= edai.price %></td>
+            <td><%= edai.user_id %></td>
+            <td><%= "編集"%></td>
+            <td><%= "削除"%>
+          </tr>
+  <% end %>
+</table>
+<div class = "genre">収支の合計</div>
+<table border="1", class = "item_balance_sum" >
+  <% @edai_sum_balance.each do |key,value| %>
+      <% case key %>
+        <% when 2 then %>
+          <% key_str = "収入" %>
+        <% when 3 then %>
+          <% key_str = "支出" %>
       <% end %>
-    </table>
-
-  <div class = "genre">収支の合計</div>
-    <table border="1", class = "item_balance_sum" >
-      <% @edai_sum_balance.each do |key,value| %>
-        <tr>
-          <% case key %>
-            <% when 2 then %>
-              <% key_str = "収入" %>
-            <% when 3 then %>
-              <% key_str = "支出" %>
-          <% end %>
-
-          <td><%= key_str %></td>
-          <td><%= value.round %></td>
-        </tr>
-      <% end %>
-    </table>
+      <tr>
+        <td><%= key_str %>
+        <td><%= value.round %></td>
+      </tr>
+  <% end %>
+</table>
 
   <div class = "genre">項目の合計</div>
     <table border="1", class = "item_sum" >
       <% @edai_sum.each do |key,value| %>
+        <% case key%>
+          <% when 2 then %>
+            <% key_str = "講師謝礼" %>
+          <% when 3 then %>
+            <% key_str = "会場費" %>
+          <% when 4 then %>
+            <% key_str = "通信費" %>
+          <% when 5 then %>
+            <% key_str = "運営経費" %>
+          <% when 6 then %>
+            <% key_str = "次年度繰越金" %>
+          <% when 7 then %>
+            <% key_str = "事業補助費" %>
+          <% when 8 then %>
+            <% key_str = "会費" %>
+          <% when 9 then %>
+            <% key_str = "句集代" %>
+          <% when 10 then %>
+            <% key_str = "前年度繰越金"%>
+        <% end %>
         <tr>
-          <% case key %>
-            <% when 2 then %>
-              <% key_str = "講師謝礼" %>
-            <% when 3 then %>
-              <% key_str = "会場費" %>
-            <% when 4 then %>
-              <% key_str = "通信費" %>
-            <% when 5 then %>
-              <% key_str = "運営費" %>
-            <% when 6 then %>
-              <% key_str = "次年度繰越金" %>
-          <% end %>
-
           <td><%= key_str %></td>
           <td><%= value.round %></td>
         </tr>
       <% end %>
     </table>
 
-  <div class = "genre">摘要の合計</div>
-    <table border="1", class = "item_sum" >
-      <% @edai_sum_description.each do |key,value| %>
-        <tr>
-          <td><%= key %></td>
-          <td><%= value.round %></td>
-        </tr>
+<div class = "genre">摘要の合計</div>
+<table border="1", class = "item_sum" >
+  <% @edai_sum_description.each do |key,value| %>
+    <% case key%>
+      <% when 2 then %>
+        <% key_str = "講師謝礼" %>
+      <% when 3 then %>
+        <% key_str = "税金"%>
+      <% when 4 then %>
+        <% key_str = "会場費"%>
+      <% when 5 then %>
+        <% key_str = "郵送代" %>
+      <% when 6 then %>
+        <% key_str = "封筒、ハガキ、短冊" %>
+      <% when 7 then %>
+        <% key_str = "コピー用紙、インクカートリッジ"%>
+      <% when 8 then %>
+        <% key_str = "句集代" %>
+      <% when 9 then %>
+        <% key_str = "次年度繰越"%>
+      <% when 10 then %>
+        <% key_str = "事業補助費" %>
+      <% when 11 then %>
+        <% key_str = "会費"%>
+      <% when 12 then %>
+        <% key_str = "句集代" %>
+      <% when 13 then %>
+        <% key_str = "前年度繰越" %>
       <% end %>
-    </table>
+    <tr>
+      <td><%= key_str %></td>
+      <td><%= value.round %></td>
+    </tr>
+  <% end %>
+</table>
