@@ -15,7 +15,7 @@
       <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
     </div>
     <div class="field">
-      <%= f.label :description, "摘要" %><br />
+      <%= f.label :description_id, "摘要" %><br />
       <%= f.collection_select(:description_id, Description.all, :id, :name, {}, {class:"description-select"}) %>
     </div>
     <div class="field">
