@@ -19,10 +19,8 @@ ActiveRecord::Schema.define(version: 2022_07_28_115443) do
     t.integer "description_id", null: false
     t.string "note"
     t.integer "price", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_edais_on_user_id"
   end
 
 end

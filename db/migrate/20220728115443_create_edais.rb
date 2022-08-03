@@ -7,7 +7,6 @@ class CreateEdais < ActiveRecord::Migration[6.0]
       t.integer    :description_id, null: false
       t.string     :note
       t.integer    :price,       null: false
-      t.references :user,        null: false
       t.timestamps
     end
   end
