@@ -1,4 +1,4 @@
-class Description < ActiveHash::Base
+class MyDescription < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: '講師謝礼' },

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_07_28_115443) do
     t.integer "balance_id", null: false
     t.date "entry_day", null: false
     t.integer "genre_id", null: false
-    t.integer "description_id", null: false
+    t.integer "my_description_id", null: false
     t.string "note"
     t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
