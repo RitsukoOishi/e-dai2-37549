@@ -1,24 +1,29 @@
-# README
+|  アプリケーション概要  |  内容                                  |
+| ------------------- | ------------------------------------- |
+|  アプリケーション名    |  会計ソフト「永代」                      |
+|  URL                |  https://e-dai2-37549.herokuapp.com/  |
+|  利用方法            |  ・トップページ→新規収支にて、新規収支の登録ができる。<br>
+・プルダウンから収支の種別を選択。<br>
+・項目、摘要もプルダウンから選択。<br>
+・保存するボタンをクリックすると、トップページに戻る。<br>
+・同じ収支・項目・摘要があれば自動集計し、金額を合算する。|
+|アプリケーションを作成した背景|趣味の同好会の会計を集計するのに、以前は電卓を活用し、<br>
+手書きにて会計法報告をしていた。c
+集計の手間を減らしたいと考え、作成。|
+|実装予定の機能         |・ユーザー認証機能<br>
+・データの削除・編集機能<br>
+・表示された金額を3桁のカンマ区切りを入れる<br>|
+|開発環境              |ruby on rails ver6.0.0、HTML|
+|工夫したポイント       |項目、摘要をプルダウンで選択できることにより、ユーザーの記述ミスなどを軽減し、集計をしやすくした点|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# テーブル設計
+## edaisテーブル
+| Column           | Type    | Options    |
+| ---------------- | ------- | ---------- |
+| balance_id       | integer | null: false|
+| entry_day        | date    | null: false|
+| genre_id         | integer | null: false|
+| my_description_id| integer | null: false|
+| note             | string  |            |
+| price            | integer | null: false|
