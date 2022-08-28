@@ -19,8 +19,8 @@
             <td><%= edai.my_description.name %></td>
             <td><%= edai.note %></td>
             <td><%= edai.price %></td>
-            <td><%= "編集"%></td>
-            <td><%= "削除"%>
+            <td><%= link_to '編集', edit_edai_path(edai.id), method: :get %></td>
+            <td><%= link_to '削除',"/edais/#{edai.id}", method: :delete%>
           </tr>
   <% end %>
 </table>

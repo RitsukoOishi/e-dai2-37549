@@ -1,0 +1,33 @@
+<h3>収支を登録する</h3>
+  <%= form_with model: @edai, local: true do |f|%>
+    <%= render partial: 'shared/error_messages', locals: { resource: @edai} %>
+    <div class="field">
+      <%= f.label :entry_day, "日付" %><br />
+      <%= f.text_area :entry_day, class: :form__text, id:"entry_day" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :balance_id, "収入/支出" %><br />
+      <%= f.collection_select(:balance_id, Balance.all, :id, :name, {}, {class:"balance-select"}) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :genre_id, "項目" %><br />
+      <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+    </div>
+    <div class="field">
+      <%= f.label :my_description_id, "摘要" %><br />
+      <%= f.collection_select(:my_description_id, MyDescription.all, :id, :name, {}, {class:"description-select"}) %>
+    </div>
+    <div class="field">
+      <%= f.label :note, "備考" %><br />
+      <%= f.text_area :note, class: :form__text, id:"note" %>
+    </div>
+    <div class="field">
+      <%= f.label :price, "金額" %><br />
+      <%= f.text_area :price, class: :form__text, id:"price" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "保存する", class: :form__btn  %>
+    </div>
+  <% end %>
